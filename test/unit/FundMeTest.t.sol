@@ -3,8 +3,8 @@
 pragma solidity ^0.8.23;
 
 import {Test, console} from "forge-std/Test.sol";
-import {FundMe} from "../src/FundMe.sol";
-import {DeployFundMe} from "../script/DeployFundMe.s.sol";
+import {FundMe} from "../../src/FundMe.sol";
+import {DeployFundMe} from "../../script/DeployFundMe.s.sol";
 
 // Price Feed Contract Matic / USD Polygon
 // Mainnet: 0xAB594600376Ec9fD91F8e885dADF0CE036862dE0
@@ -15,7 +15,7 @@ contract FundMeTest is Test {
 
     address USER = makeAddr("user");
     uint256 constant STARTING_BALANCE = 100e18;
-    uint256 constant SUFFICIENT_AMOUNT = 5e18;
+    uint256 constant SUFFICIENT_AMOUNT = 8e18;
     uint256 constant INSUFFICIENT_AMOUNT = 1e18;
 
     // uint256 constant GAS_PRICE = 1;
