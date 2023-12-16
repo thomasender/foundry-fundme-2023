@@ -1,4 +1,22 @@
+# Fund Me Smart Contract
+
+The Smart Contract (backend) for a fund me blockchain application.
+
+## Environment Variables
+
+These are the environment variables you need to set in your .env file in order to have the scripts work correctly.
+
+```
+MUMBAI_RPC_URL= <youRPCUrl>
+POLYGON_MAIN_RPC_URL= <yourRPCUrl>
+# This is MetaMask Dev private key Account Dev Only Never use this for real money transactions!
+PRIVATE_KEY=<yourDevPrivateKey>
+ETHERSCAN_API_KEY=<yourEtherscanApiKey>
+```
+
 ## Foundry
+
+This project is built with Foundry
 
 **Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
 
