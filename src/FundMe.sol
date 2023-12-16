@@ -44,21 +44,17 @@ contract FundMe {
     }
 
     function withdraw() public onlyOwner {
+        uint256 fundersLength = s_funders.length;
         for (
             uint256 funderIndex = 0;
-            funderIndex < s_funders.length;
+            funderIndex < fundersLength;
             funderIndex++
         ) {
             address funder = s_funders[funderIndex];
             s_addressToAmountFunded[funder] = 0;
         }
+        // Reset the funders array after withdrawal
         s_funders = new address[](0);
-        // // transfer
-        // payable(msg.sender).transfer(address(this).balance);
-
-        // // send
-        // bool sendSuccess = payable(msg.sender).send(address(this).balance);
-        // require(sendSuccess, "Send failed");
 
         // call
         (bool callSuccess, ) = payable(msg.sender).call{
