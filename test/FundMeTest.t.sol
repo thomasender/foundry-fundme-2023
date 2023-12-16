@@ -18,6 +18,8 @@ contract FundMeTest is Test {
     uint256 constant SUFFICIENT_AMOUNT = 5e18;
     uint256 constant INSUFFICIENT_AMOUNT = 1e18;
 
+    // uint256 constant GAS_PRICE = 1;
+
     // setUp is called before each test!
     function setUp() external {
         DeployFundMe deployFundMe = new DeployFundMe();
@@ -74,9 +76,22 @@ contract FundMeTest is Test {
         uint256 startingFundMeBalance = address(fundMe).balance;
 
         // Act
+        // gasleft() returns the amount of gas left in the current transaction
+        // It is built in to Solidity!
+        // uint256 gasStart = gasleft();
+        // Anvil defaults gas to 0
+        // vm.txGasPrice() lets us specify a gasPrice for the next transaction
+        // vm.txGasPrice(GAS_PRICE);
         // The next transaction is sent by the owner
         vm.prank(fundMe.getOwner());
         fundMe.withdraw();
+
+        // uint256 gasEnd = gasleft();
+        // tx.gasprice returns the current gasPrice
+        // it is built in to Solidity!
+        // uint256 gasUsed = (gasStart - gasEnd) * tx.gasprice;
+        // console.log(gasUsed);
+
         // Assert
         assertEq(
             fundMe.getOwner().balance,
